@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="root" namespace="/" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="validate"
+				class="com.elvis.util.interceptor.ValidateInterceptor" />
+			<interceptor name="randcode"
+				class="com.elvis.util.interceptor.RandCodeInterceptor" />
+			<interceptor-stack name="adminStack">
+				<interceptor-ref name="validate" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			<interceptor-stack name="empStack">
+				<interceptor-ref name="validate" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			<interceptor-stack name="managerStack">
+				<interceptor-ref name="validate" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+			<interceptor-stack name="loginStack">
+				<interceptor-ref name="randcode" />
+				<interceptor-ref name="validate" />
+				<interceptor-ref name="defaultStack" />
+			</interceptor-stack>
+		</interceptors>
+		<global-results>
+			<result name="login.page">login.jsp</result>
+			<result name="forward.page">forward.jsp</result>
+			<result name="input">errors.jsp</result>
+		</global-results>
+	</package>
+</struts>    
