@@ -10,19 +10,19 @@
 	</tr>
 	<tr>
 		<td style="width:15%"><strong>用户名：</strong></td>
-		<td>MLDN</td>
+		<td>Elvis</td>
 	</tr>
 	<tr>
 		<td><strong>真实姓名：</strong></td>
-		<td>魔乐科技</td>
+		<td>LZH</td>
 	</tr>
 	<tr>
 		<td><strong>联系电话：</strong></td>
-		<td>51283346</td>
+		<td>18840892106</td>
 	</tr>
 	<tr>
 		<td><strong>联系邮箱：</strong></td>
-		<td>mldnqa@163.com</td>
+		<td>liaozihandut@163.com</td>
 	</tr>
 	<tr>
 		<td><strong>用户状态：</strong></td>

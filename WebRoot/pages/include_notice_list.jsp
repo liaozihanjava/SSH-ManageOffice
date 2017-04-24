@@ -40,13 +40,13 @@
 				<button class="close" type="button" data-dismiss="modal" aria-hidden="true">&times;</button>
 				<h3 class="modal-title">
 					<span class="glyphicon glyphicon-eye-open"></span>
-					<strong>查看“协同办公系统发布”公告</strong></h3>
+					<strong>查看“办公室系统发布”公告</strong></h3>
 			</div>
 			<div class="modal-body">
 				<table class="table table-bordered table-hover table-condensed table-responsive">
 					<tr>
 						<td><strong>公告名称：</strong></td>
-						<td><span id="titleSpan">协同办公系统发布</span></td>
+						<td><span id="titleSpan">办公室系统发布</span></td>
 					</tr>
 					<tr>
 						<td><strong>公告发布者：</strong></td>

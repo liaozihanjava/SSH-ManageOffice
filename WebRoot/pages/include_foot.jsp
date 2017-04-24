@@ -11,7 +11,7 @@
 		</div>
 		<div class="col-md-5 col-xs-5">
 			<span class="h3"> 
-				<strong>&nbsp;elvis（www.github.com/liaozihanjava）</strong>
+				<strong>elvis（www.github.com/liaozihanjava）</strong>
 			</span>
 		</div>
 	</div>

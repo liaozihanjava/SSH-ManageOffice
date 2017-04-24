@@ -21,6 +21,9 @@
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
 		<mapping class="com.elvis.office.pojo.User" />
+		<mapping class="com.elvis.office.pojo.Groups" />
+		<mapping class="com.elvis.office.pojo.Role" />
+		<mapping class="com.elvis.office.pojo.Action" />
 
 	</session-factory>
 

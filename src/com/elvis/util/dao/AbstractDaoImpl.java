@@ -42,6 +42,10 @@ public abstract class AbstractDaoImpl {
 	public Query getQuery(String hql) {
 		return this.getSession().createQuery(hql) ;
 	}
+	
+	public Query getSqlQuery(String sql){
+		return this.getSession().createSQLQuery(sql);
+	}
 	/**
 	 * 利用此方法取得Criteria对象
 	 * @param cls 操作的类型

@@ -1,16 +1,14 @@
 package com.elvis.office.pojo;
 
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.Set;
-import javax.persistence.CascadeType;
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 /**
@@ -24,13 +22,14 @@ public class User implements java.io.Serializable {
 	// Fields
 
 	private String userid;
+	private Role role;
 	private String password;
 	private String name;
 	private Integer level;
 	private String phone;
 	private String email;
 	private String photo;
-	private Timestamp lastlogin;
+	private Date lastlogin;
 	private Integer lockflag;
 
 	// Constructors
@@ -47,6 +46,7 @@ public class User implements java.io.Serializable {
 		this.level = level;
 	}
 
+	/** full constructor */
 
 	// Property accessors
 	@Id
@@ -61,6 +61,16 @@ public class User implements java.io.Serializable {
 		this.userid = userid;
 	}
 
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "rid")
+
+	public Role getRole() {
+		return this.role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
 
 	@Column(name = "password", nullable = false, length = 32)
 
@@ -124,11 +134,11 @@ public class User implements java.io.Serializable {
 
 	@Column(name = "lastlogin", length = 19)
 
-	public Timestamp getLastlogin() {
+	public Date getLastlogin() {
 		return this.lastlogin;
 	}
 
-	public void setLastlogin(Timestamp lastlogin) {
+	public void setLastlogin(Date lastlogin) {
 		this.lastlogin = lastlogin;
 	}
 
