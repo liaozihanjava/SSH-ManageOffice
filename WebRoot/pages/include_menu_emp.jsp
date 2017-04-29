@@ -25,7 +25,7 @@
 				class="glyphicon glyphicon-chevron-down"></span></a>
 			<ul class="dropdown-menu main-list">
 				<li><a href="pages/jsp/emp/emp/emp_password_edit.jsp"><i class="glyphicon glyphicon-edit"></i>&nbsp;修改密码</a></li>
-				<li><a href="pages/jsp/emp/EmpUpdateAction!updatePre.action"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;个人资料</a></li>
+				<li><a href="pages/jsp/emp/emp/EmpUpdateAction!updatePre.action"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;个人资料</a></li>
 				<li class="divider"></li>
 				<li><a href="UserLogout!logout.action"><i class="glyphicon glyphicon-off"></i>&nbsp;登录注销</a></li>
 			</ul>

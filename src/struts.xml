@@ -8,15 +8,25 @@
 				class="com.elvis.util.interceptor.ValidateInterceptor" />
 			<interceptor name="randcode"
 				class="com.elvis.util.interceptor.RandCodeInterceptor" />
+			<interceptor name="pages" class="com.elvis.office.interceptor.PagesInterceptor"/>
+			<interceptor name="adminPages" class="com.elvis.office.interceptor.AdminPagesInterceptor"/>
+			<interceptor name="managerPages" class="com.elvis.office.interceptor.ManagerPagesInterceptor"/>
+			<interceptor name="empPages" class="com.elvis.office.interceptor.EmpPagesInterceptor"/>
 			<interceptor-stack name="adminStack">
+				<interceptor-ref name="pages"/>
+				<interceptor-ref name="adminPages"/>
 				<interceptor-ref name="validate" />
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 			<interceptor-stack name="empStack">
+				<interceptor-ref name="pages"/>
+				<interceptor-ref name="empPages"/>				
 				<interceptor-ref name="validate" />
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
 			<interceptor-stack name="managerStack">
+				<interceptor-ref name="pages"/>
+				<interceptor-ref name="managerPages"/>
 				<interceptor-ref name="validate" />
 				<interceptor-ref name="defaultStack" />
 			</interceptor-stack>
@@ -27,8 +37,8 @@
 			</interceptor-stack>
 		</interceptors>
 		<global-results>
-			<result name="login.page">login.jsp</result>
-			<result name="forward.page">forward.jsp</result>
+			<result name="login.page">/login.jsp</result>
+			<result name="forward.page">/forward.jsp</result>
 			<result name="input">errors.jsp</result>
 		</global-results>
 	</package>

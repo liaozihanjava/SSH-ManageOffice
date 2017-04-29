@@ -11,7 +11,7 @@
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>协同办公管理系统</title>
+<title>办公室管理系统</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <jsp:include page="/pages/include_javascript.jsp" />
 <script type="text/javascript" src="js/admin/admin_admin_list.js"></script>

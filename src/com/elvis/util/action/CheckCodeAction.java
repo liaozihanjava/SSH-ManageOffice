@@ -31,7 +31,6 @@ public class CheckCodeAction extends AbstractAction {
 	}
 	@Override
 	public String getTypeName() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

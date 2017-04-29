@@ -34,6 +34,9 @@ public class UserLoginActionCommon extends AbstractAction {
 
 	public String login() {
 		try {
+			super.getSession().removeAttribute("admin");
+			super.getSession().removeAttribute("manager");
+			super.getSession().removeAttribute("emp");
 			User resultUser = this.userServiceCommon.login(
 					this.user.getUserid(),
 					new MD5Code().getMD5ofStr(this.user.getPassword()));
