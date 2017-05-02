@@ -16,7 +16,7 @@ import com.elvis.util.dao.AbstractDaoImpl;
 
 @Component
 public class UserDaoImpl extends AbstractDaoImpl implements UserDao {
-	
+
 	@Override
 	public boolean doCreate(User vo) throws SQLException {
 		// TODO Auto-generated method stub
@@ -62,11 +62,20 @@ public class UserDaoImpl extends AbstractDaoImpl implements UserDao {
 
 	@Override
 	public User findLogin(String userid, String password) throws Exception {
-		String hql = "FROM User AS u WHERE u.userid=? AND u.password=?" ;
+		String hql = "FROM User AS u WHERE u.userid=? AND u.password=?";
 		Query query = super.getQuery(hql);
-		query.setParameter(0, userid) ;
-		query.setParameter(1, password) ;
-		return (User) query.uniqueResult(); 
+		query.setParameter(0, userid);
+		query.setParameter(1, password);
+		return (User) query.uniqueResult();
+	}
+
+	@Override
+	public boolean doUpdatePassword(User vo) throws Exception {
+		String hql = "update User as u set u.password=? where u.userid=?";
+		Query query = super.getQuery(hql);
+		query.setParameter(0, vo.getPassword());
+		query.setParameter(1, vo.getUserid());
+		return query.executeUpdate() > 0;
 	}
 
 }

@@ -4,7 +4,7 @@
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-	String updatePath = basePath + "pages/jsp/admin/AdminAcionBack!updatePassword.action" ;
+	String updatePath = basePath + "pages/jsp/admin/admin/AdminUpdateAction!updatePassword.action" ;
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">

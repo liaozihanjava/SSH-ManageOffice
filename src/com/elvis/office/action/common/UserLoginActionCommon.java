@@ -37,10 +37,12 @@ public class UserLoginActionCommon extends AbstractAction {
 			super.getSession().removeAttribute("admin");
 			super.getSession().removeAttribute("manager");
 			super.getSession().removeAttribute("emp");
+			System.out.println(this.user.getUserid()+" "+this.user.getPassword());
 			User resultUser = this.userServiceCommon.login(
 					this.user.getUserid(),
 					new MD5Code().getMD5ofStr(this.user.getPassword()));
-			if (resultUser != null) { // 用户登录成功，信息可以正常返回
+			//System.out.println(resultUser.getUserid());
+			if (resultUser.getUserid() != null) { // 用户登录成功，信息可以正常返回
 				// 在session中进行保存，在保存的时候要分好形式，根据级别保存
 				// 如果级别是0或者是1，那么就是管理员
 				if (resultUser.getLevel() == 0 || resultUser.getLevel() == 1) {
@@ -54,7 +56,9 @@ public class UserLoginActionCommon extends AbstractAction {
 					super.setMsgAndUrl("user.login.success", "emp.index.page");
 				}
 			} else {	// 登录失败
+				//System.out.println("????????");
 				super.setMsgAndUrl("user.login.failure", "login.page");
+				//System.out.println("ddddd");
 			} 
 		} catch (Exception e) {
 			e.printStackTrace();

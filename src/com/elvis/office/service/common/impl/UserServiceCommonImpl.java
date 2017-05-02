@@ -61,5 +61,15 @@ public class UserServiceCommonImpl implements UserServiceCommon {
 		}
 		return retUser;
 	}
+	@Override
+	public boolean updatePassword(String userid, String oldPassword, String newPassword) throws Exception {
+		if(this.userDao.findLogin(userid, oldPassword)!=null){
+			User vo = new User();
+			vo.setUserid(userid);
+			vo.setPassword(newPassword);
+			return this.userDao.doUpdatePassword(vo);
+		}
+		return false;
+	}
 
 }

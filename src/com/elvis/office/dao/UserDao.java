@@ -5,4 +5,5 @@ import com.elvis.util.dao.IDAO;
 
 public interface UserDao extends IDAO<String, User> {
 	public User findLogin(String userid, String password) throws Exception;
+	public boolean doUpdatePassword(User vo) throws Exception;
 }
