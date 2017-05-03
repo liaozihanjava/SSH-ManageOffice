@@ -4,14 +4,14 @@
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
-	String updateUrl = basePath + "pages/manager/manager/ManagerActionBack!update.action" ;
+	String updateUrl = basePath + "pages/jsp/emp/emp/EmpUpdateAction!update.action" ;
 %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <base href="<%=basePath%>">
-<title>协同办公管理系统</title>
+<title>办公室管理系统</title>
 <meta name="viewport" content="width=device-width,initial-scale=1"> 
 <jsp:include page="/pages/include_javascript.jsp" /> 
 </head>
