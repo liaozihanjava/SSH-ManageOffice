@@ -71,5 +71,15 @@ public class UserServiceCommonImpl implements UserServiceCommon {
 		}
 		return false;
 	}
+	@Override
+	public User updatePre(String userid) throws Exception {
+		
+		return this.userDao.findById(userid);
+	}
+	@Override
+	public boolean update(User vo) throws Exception {
+
+		return this.userDao.doUpdate(vo);
+	}
 
 }

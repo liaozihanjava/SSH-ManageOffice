@@ -25,8 +25,16 @@ public class UserDaoImpl extends AbstractDaoImpl implements UserDao {
 
 	@Override
 	public boolean doUpdate(User vo) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		String hql = "Update User as u set u.name=?,u.phone=?,u.email=?,u.photo=? where u.userid=?";
+		Query query = super.getQuery(hql);
+		query.setParameter(0, vo.getName());
+		query.setParameter(1, vo.getPhone());
+		query.setParameter(2, vo.getEmail());
+		query.setParameter(3, vo.getPhoto());
+		query.setParameter(4, vo.getUserid());
+		
+		return query.executeUpdate() > 0;
+		
 	}
 
 	@Override
@@ -37,8 +45,7 @@ public class UserDaoImpl extends AbstractDaoImpl implements UserDao {
 
 	@Override
 	public User findById(String id) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return (User)super.getSession().get(User.class, id);
 	}
 
 	@Override

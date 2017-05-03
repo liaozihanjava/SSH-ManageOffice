@@ -31,7 +31,7 @@
 						<table class="table table-bordered table-hover">
 							<tr>
 								<td colspan="3">
-									<span class="h1"><span class="glyphicon glyphicon-user"></span>&nbsp;欢迎“寒哥”光临！</span>
+									<span class="h1"><span class="glyphicon glyphicon-user"></span>&nbsp;欢迎${manager.userid}光临！</span>
 									<strong><span class="glyphicon glyphicon-envelope"></span>&nbsp;未读公告（<span class="text-danger">
 										<a href="pages/jsp/manager/notice/manager_notice_list.jsp">26</a>
 									</span>）</strong>
@@ -39,7 +39,7 @@
 							</tr>
 							<tr>
 								<td rowspan="4" style="width:130px;">
-									<img src="upload/user/nophoto.jpg" class="image" style="height:128px;width:128px;">
+									<img src="upload/user/${manager.photo}" class="image" style="height:128px;width:128px;">
 								</td>
 							</tr>
 							<tr>
@@ -48,12 +48,12 @@
 							</tr>
 							<tr>
 								<td><strong>上次登录日期：</strong></td>
-								<td>2017-10-10 19:34:52</td>
+								<td>${manager.lastlogin}</td>
 							</tr>
 							<tr>
 								<td colspan="2">
 									<a href="pages/jsp/manager/manager/manager_password_edit.jsp" class="btn btn-primary">修改密码</a>
-									<a href="pages/jsp/manager/manager/manager_manager_update.jsp" class="btn btn-warning">完善个人资料</a>
+									<a href="pages/jsp/manager/manager/ManagerUpdateAction!updatePre.action" class="btn btn-warning">完善个人资料</a>
 									<a href="UserLogout!logout.action" class="btn btn-danger">登录注销</a>
 								</td>
 							</tr>

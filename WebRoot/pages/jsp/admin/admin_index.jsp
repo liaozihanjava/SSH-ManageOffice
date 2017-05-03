@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://www.elvis.cn/c"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -22,7 +23,7 @@
 			</div>
 		</div>
 		<div id="contentDiv" class="row">
-			<div class="col-md-12 col-xs-12">
+		   	<div class="col-md-12 col-xs-12">
 				<div class="panel panel-success">
 					<div class="panel-heading">
 						<strong>管理员管理首页</strong>
@@ -30,25 +31,32 @@
 					<div class="panel-body">
 						<table class="table table-bordered table-hover">
 							<tr>
-								<td colspan="3"><span class="h1"><span class="glyphicon glyphicon-user"></span>&nbsp;欢迎“寒哥”光临！</span></td>
+								<td colspan="3"><span class="h1"><span class="glyphicon glyphicon-user"></span>&nbsp;欢迎${admin.userid}光临！</span></td>
 							</tr>
 							<tr>
 								<td rowspan="4" style="width:130px;">
-									<img src="upload/user/nophoto.jpg" class="image" style="height:128px;width:128px;">
+									<img src="upload/user/${admin.photo}" class="image" style="height:128px;width:128px;">
 								</td>
 							</tr>
 							<tr>
-								<td style="width:240px;"><strong>管理员级别：</strong></td>
-								<td>xxx</td>
+								<td style="width:240px;"> <strong>管理员级别：</strong></td>
+								<td>
+								<c:if test="${admin.level == 0 }">
+								 超级管理员
+								</c:if>
+								<c:if test="${admin.level == 1 }">
+								 管理员
+								</c:if>
+								</td>
 							</tr>
 							<tr>
 								<td><strong>上次登录日期：</strong></td>
-								<td>2017-10-10 19:34:52</td>
+								<td>${admin.lastlogin}</td>
 							</tr>
 							<tr>
 								<td colspan="2">
 									<a href="pages/jsp/admin/admin/admin_password_edit.jsp" class="btn btn-primary">修改密码</a>
-									<a href="pages/jsp/admin/admin/admin_admin_update.jsp" class="btn btn-warning">完善个人资料</a>
+									<a href="pages/jsp/admin/admin/AdminUpdateAction!updatePre.action" class="btn btn-warning">完善个人资料</a>
 									<a href="UserLogout!logout.action" class="btn btn-danger">登录注销</a>
 								</td>
 							</tr>

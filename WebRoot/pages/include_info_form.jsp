@@ -16,7 +16,7 @@
 			<div class="col-md-5">
 				<!-- 定义表单输入组件 -->
 				<input type="text" id="user.userid" name="user.userid" class="form-control"
-					placeholder="请输入登录用户名" readonly="true" value="mldn">
+					placeholder="请输入登录用户名" readonly="true" value="${user.userid}">
 			</div>
 			<!-- 定义表单错误提示显示元素 -->
 			<div class="col-md-4" id="user.useridMsg"></div>
@@ -28,7 +28,7 @@
 			<div class="col-md-5">
 				<!-- 定义表单输入组件 -->
 				<input type="text" id="user.name" name="user.name" class="form-control"
-					placeholder="请输入用户真实姓名" value="魔乐科技">
+					placeholder="请输入用户真实姓名" value="${user.name}">
 			</div>
 			<!-- 定义表单错误提示显示元素 --> 
 			<div class="col-md-4" id="user.nameMsg"></div>
@@ -40,7 +40,7 @@
 			<div class="col-md-5">
 				<!-- 定义表单输入组件 -->
 				<input type="text" id="user.phone" name="user.phone"
-					class="form-control" placeholder="请输入联系电话" value="51283346">
+					class="form-control" placeholder="请输入联系电话" value="${user.phone}">
 			</div>
 			<!-- 定义表单错误提示显示元素 -->
 			<div class="col-md-4" id="user.phoneMsg"></div>
@@ -52,12 +52,12 @@
 			<div class="col-md-5">
 				<!-- 定义表单输入组件 -->
 				<input type="text" id="user.email" name="user.email"
-					class="form-control" placeholder="请输入联系邮箱" value="mldnqa@163.com">
+					class="form-control" placeholder="请输入联系邮箱" value="${user.email}">
 			</div>
 			<!-- 定义表单错误提示显示元素 -->
 			<div class="col-md-4" id="user.emailMsg"></div>
 		</div>
-		<div class="form-group" id="user.emailDiv">
+		<div class="form-group" id="photoDiv">
 			<!-- 定义表单提示文字 -->
 			<label class="col-md-3 control-label" for="user.email">个人照片：</label>
 			<div class="col-md-5">
@@ -70,6 +70,7 @@
 		</div>
 		<div class="form-group">
 			<div class="col-md-5 col-md-offset-3">
+			<input type="hidden" name="user.photo" id="user.photo" value="${user.photo}">
 				<button type="submit" class="btn btn-primary">修改</button>
 				<button type="reset" class="btn btn-warning">重置</button>
 			</div>
