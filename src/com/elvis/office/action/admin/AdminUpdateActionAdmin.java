@@ -83,19 +83,15 @@ public class AdminUpdateActionAdmin extends AbstractAction {
 
 	public String update() {
 		User user = (User) super.getSession().getAttribute("admin");
-		System.out.println(user);
-		System.out.println(this.user);
 		this.user.setUserid(user.getUserid());
-		if(this.photo!=null){
-		if (this.photo.length() > 0) {
+		if (this.photo != null && this.photo.length() > 0) {
 			if ("nophoto.jpg".equals(this.user.getPhoto())) {
 				this.user.setPhoto(super.createSingleFileName(this.photoContentType));
 			}
 		}
-		}
 		try {
 			if (this.userService.update(this.user)) {
-				if (this.photo!=null&&this.photo.length() > 0) {
+				if (this.photo != null && this.photo.length() > 0) {
 					String filePath = super.getApplication().getRealPath("/upload/user/") + this.user.getPhoto();
 					if (super.saveSingleFile(filePath, this.photo)) {
 						user.setPhoto(this.user.getPhoto());
