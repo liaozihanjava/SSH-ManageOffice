@@ -34,4 +34,16 @@ public class CheckCodeAction extends AbstractAction {
 		return null;
 	}
 
+	@Override
+	public String getDefaultColumn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getColumnData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

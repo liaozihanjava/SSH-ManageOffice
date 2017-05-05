@@ -117,4 +117,16 @@ public class ManagerUpdateActionManager extends AbstractAction {
 		return "项目经理";
 	}
 
+	@Override
+	public String getDefaultColumn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getColumnData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

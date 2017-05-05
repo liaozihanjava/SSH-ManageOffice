@@ -18,6 +18,49 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 public abstract class AbstractAction extends ActionSupport {
+	private Integer cp = 1;
+	private Integer ls = 5;
+	private String col;
+	private String kw;
+
+	public void setCp(Integer cp) {
+		this.cp = cp;
+	}
+
+	public Integer getCp() {
+		return cp;
+	}
+
+	public Integer getLs() {
+		return ls;
+	}
+
+	public String getCol() {
+		if (this.col == null || "".equals(col)) {
+			return this.getDefaultColumn();
+		}
+		return this.col;
+	}
+
+	public String getKw() {
+		if (kw == ""||kw==null) {
+			return "";
+		}
+		return kw;
+	}
+
+	public void setLs(Integer ls) {
+		this.ls = ls;
+	}
+
+	public void setCol(String col) {
+		this.col = col;
+	}
+
+	public void setKw(String kw) {
+		this.kw = kw;
+	}
+
 	public String getUrl(String key) {
 		return super.getText(key);
 	}
@@ -44,6 +87,19 @@ public abstract class AbstractAction extends ActionSupport {
 		return ServletActionContext.getServletContext();
 	}
 
+	public void handleSplit(Object allRecorders, String urlKey, String paramName,
+			String paramValue) {
+		this.getRequest().setAttribute("currentPage", this.getCp());
+		this.getRequest().setAttribute("lineSize", this.getLs());
+		this.getRequest().setAttribute("column", this.getCol());
+		this.getRequest().setAttribute("keyWord", this.getKw());
+		this.getRequest().setAttribute("url", this.getUrl(urlKey));
+		this.getRequest().setAttribute("allRecorders", allRecorders);
+		this.getRequest().setAttribute("columnData", this.getColumnData());
+		this.getRequest().setAttribute("paramName", paramName);
+		this.getRequest().setAttribute("paramValue", paramValue);
+	} 
+	
 	public void setMsgAndUrl(String msgKey, String urlKey) {
 		this.getRequest().setAttribute("msg", this.getMsg(msgKey));
 		this.getRequest().setAttribute("url", this.getUrl(urlKey));
@@ -110,5 +166,9 @@ public abstract class AbstractAction extends ActionSupport {
 		}
 		return flag;
 	}
+
+	public abstract String getDefaultColumn();
+
+	public abstract String getColumnData();
 
 }

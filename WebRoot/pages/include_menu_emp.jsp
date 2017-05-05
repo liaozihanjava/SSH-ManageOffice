@@ -1,5 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://www.elvis.cn/c" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
 <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
 	<div class="navbar-header">
 		<a class="navbar-brand" href="pages/jsp/emp/emp_index.jsp"><strong>办公室管理系统（雇员）</strong></a>
@@ -12,7 +17,7 @@
 				data-toggle="dropdown">${gup.title}<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<c:forEach items="${gup.actions}" var="act">
-						<li><a href="${act.url}">${act.title}</a></li>
+						<li><a href="<%=basePath%>${act.url}">${act.title}</a></li>
 					</c:forEach>
 				</ul></li>
 			</c:forEach>

@@ -114,4 +114,16 @@ public class EmpUpdateActionEmp extends AbstractAction {
 		return "雇员";
 	}
 
+	@Override
+	public String getDefaultColumn() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getColumnData() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

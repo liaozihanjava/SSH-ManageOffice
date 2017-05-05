@@ -1,11 +1,14 @@
 package com.elvis.util.dao;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 /**
  * 这个类作为DAO子类的公共父类，目的是简化重复代码的开发
  * @author mldn
@@ -55,4 +58,27 @@ public abstract class AbstractDaoImpl {
 		Criteria criteria = this.getSession().createCriteria(cls) ;
 		return criteria ;
 	} 
+	
+	public Integer handleCount(String pojoName, String column, String keyWord) {
+		System.out.println("keyWord:"+keyWord);
+		String hql = "SELECT COUNT(*) FROM " + pojoName + " AS p WHERE p."
+				+ column + " LIKE ?";
+		Query query = this.getQuery(hql);
+		query.setParameter(0, "%" + keyWord + "%");
+		System.out.println("Dao:"+((Long) query.uniqueResult()).intValue());
+		return ((Long) query.uniqueResult()).intValue();
+	}
+	@SuppressWarnings("rawtypes")
+	public List handleSplit(Class<?> cls,Integer currentPage,Integer lineSize,String column,String keyWord){
+		Criteria criteria = this.getCriteria(cls);
+		criteria.add(Restrictions.like(column, "%"+keyWord+"%"));
+		criteria.setFirstResult((currentPage-1)*lineSize);
+		criteria.setMaxResults(lineSize);
+		return criteria.list();
+	}
+	@SuppressWarnings("rawtypes")
+	public List handleList(Class<?> cls){
+		Criteria criteria = this.getCriteria(cls);
+		return criteria.list();
+	}
 }

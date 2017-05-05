@@ -38,7 +38,7 @@ public class UserServiceCommonImpl implements UserServiceCommon {
 			Iterator<Groups> iter = allGroups.iterator();
 			while(iter.hasNext()){
 				Groups gup = iter.next();
-				Set<Action> set = new HashSet<Action>();
+				Set<Action> set = new TreeSet<Action>();
 				set.addAll(actionDao.findAllByGroups(gup.getGid()));
 				gup.setActions(set);
 			}

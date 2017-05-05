@@ -15,7 +15,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "action", catalog = "office")
 
-public class Action implements java.io.Serializable {
+public class Action implements java.io.Serializable,Comparable<Action>{
 
 	// Fields
 
@@ -86,6 +86,16 @@ public class Action implements java.io.Serializable {
 
 	public void setUrl(String url) {
 		this.url = url;
+	}
+
+	@Override
+	public int compareTo(Action o) {
+		if(this.actid<o.actid){
+			return -1;
+		}
+		else{
+			return 1;
+		}
 	}
 
 }

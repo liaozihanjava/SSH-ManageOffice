@@ -22,8 +22,12 @@ public class AcionDaoImpl extends AbstractDaoImpl implements ActionDao {
 
 	@Override
 	public boolean doUpdate(Action vo) throws SQLException {
-		// TODO Auto-generated method stub
-		return false;
+		String hql = "update Action as a set a.title=?,a.url=? where a.actid=?";
+		Query query = super.getQuery(hql);
+		query.setParameter(0, vo.getTitle());
+		query.setParameter(1, vo.getUrl());
+		query.setParameter(2, vo.getActid());
+		return query.executeUpdate() > 0;
 	}
 
 	@Override
@@ -38,25 +42,25 @@ public class AcionDaoImpl extends AbstractDaoImpl implements ActionDao {
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Action> findAll() throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return super.handleList(Action.class);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Action> findAllSplit(Integer currentPage, Integer lineSize, String column, String keyWord)
 			throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return super.handleSplit(Action.class, currentPage, lineSize, column, keyWord);
 	}
 
 	@Override
 	public Integer getAllCount(String column, String keyWord) throws SQLException {
-		// TODO Auto-generated method stub
-		return null;
+		return super.handleCount("Action", column, keyWord);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Action> findAllByGroups(Integer gid) throws Exception {
 		String hql = "from Action as a where a.groups.gid = ?";

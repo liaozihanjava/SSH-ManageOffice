@@ -6,7 +6,11 @@ $(function() {
 			var url = $("#url-" + actid).val() ;
 			console.log("actid = " + actid + "，title = " + title + "，url = " + url) ;
 			// 编写Ajax异步更新操作
-			operateAlert(true,"权限信息修改成功！","权限信息修改失败！") ;
+			$.post("pages/jsp/admin/role/ActionActionAdmin!update.action",{"action.actid":actid,"action.title":title,"action.url":url},
+					function(data){
+				operateAlert(data=="true","权限信息修改成功！","权限信息修改失败！") ;
+			},
+					"text")
 		}) ;
 	}) ;
 })
